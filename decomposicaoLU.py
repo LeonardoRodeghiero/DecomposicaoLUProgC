@@ -39,7 +39,7 @@ def DecomposicaoLU(A, n):
                     soma = soma + L[k][s] * U[s][j]
                 U[k][j] = A[k][j] - soma
             
-            # Calcula os elementos de L na coluna k-1
+            # Calcula os elementos de L na coluna k
             for i in range(k+1, n):
                 soma = 0
                 for s in range(0, k):

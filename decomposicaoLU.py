@@ -13,7 +13,7 @@ def DecomposicaoLU(A, n):
     #L e U serao matrizes nxn com L tendo 1 na diagonal
     
     
-    #Criação das matrizes L e U e preenchendo as duas com 0 em todas as casas
+    #Criação das matrizes L e U
     L = []
     U = []
     try:
@@ -22,6 +22,8 @@ def DecomposicaoLU(A, n):
             if(qtdNums != n):
                 raise MatrizNaoQuadrada
 
+
+        # Preenchendo as duas matrizes L e U com 0 em todas as casas
         for i in range(n):
             linhaU = []
             linhaL = []
@@ -30,8 +32,9 @@ def DecomposicaoLU(A, n):
                 linhaL.append(0)
             L.append(linhaL)
             U.append(linhaU)
-       
-        for k in range(n):
+
+        
+        for k in range(n): # Esse for vai percorrer de 0 até o valor da matriz quadrada, exemplo: 3x3, 4x4, 5x5. Vai percorrer de 0 a 2, 0 a 3 e 0 a 4, respectivamente, pois o for in range ignora a última casa.
             #calcula os elementos de U na linha k
             for j in range(k, n):
                 soma = 0

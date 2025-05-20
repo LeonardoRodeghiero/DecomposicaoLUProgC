@@ -42,6 +42,11 @@ def DecomposicaoLU(A, n):
                     soma = soma + L[k][s] * U[s][j]
                 U[k][j] = A[k][j] - soma
             
+            if U[k][k] == 0:
+                raise MatrizSingular
+            
+            
+            
             # Calcula os elementos de L na coluna k
             for i in range(k+1, n):
                 soma = 0
@@ -151,9 +156,10 @@ def definicao_matrizA():
     else:
         
 
-        A = [[1, 2, 6],
-             [3, 4, 9],
-             [2, 5, 8]
+        A = [[4, 5, 6],
+             [1, 2, 3],
+             [7, 8, 9]
+             
             ]
             
         num = len(A)
@@ -175,6 +181,3 @@ def definicao_matrizA():
 A, num = definicao_matrizA()    
 
 DecomposicaoLU(A, num)
-
-
-

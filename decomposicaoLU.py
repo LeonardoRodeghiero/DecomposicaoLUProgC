@@ -40,7 +40,7 @@ def DecomposicaoLU(A):
             for j in range(k, n):
                 soma = 0
                 for s in range(0, k):
-                    soma = soma + L[k][s] * U[s][j]
+                    soma += L[k][s] * U[s][j]
                 U[k][j] = A[k][j] - soma
             
             if U[k][k] == 0:
@@ -52,7 +52,7 @@ def DecomposicaoLU(A):
             for i in range(k+1, n):
                 soma = 0
                 for s in range(0, k):
-                    soma = soma + L[i][s] * U[s][k]
+                    soma += L[i][s] * U[s][k]
                 if U[k][k] != 0:
                     L[i][k] = (A[i][k] - soma) / U[k][k]
                 else:
@@ -91,6 +91,10 @@ def DecomposicaoLU(A):
             for j in range(n):
                 print(f"{U[i][j]:.2f}", end='  ')
             print() 
+    
+        
+    
+    
     
     except MatrizSingular as erro:
         print(f'Erro: {erro}')
@@ -146,9 +150,15 @@ def definicao_matrizA_Por_Inputs():
 #A = definicao_matrizA_Por_Inputs()    
 
 
-A = [[1, 3, 5],
-     [2, 8, 9],
-     [4, 4, 9]
+A = [[2, 3, 1],
+     [4, 7, 7],
+     [-2, 4, 5]
     ]
 
 DecomposicaoLU(A)
+
+
+
+
+
+

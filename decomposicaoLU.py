@@ -8,10 +8,11 @@ class MatrizSingular(Exception):
     def __init__(self, mensagem="""Matriz Singular ou Pivô Zero!"""):
         super().__init__(mensagem)
 
-def DecomposicaoLU(A, n):
+def DecomposicaoLU(A):
     #A é uma matriz quadrada nxn
     #L e U serao matrizes nxn com L tendo 1 na diagonal
     
+    n = len(A)
     
     #Criação das matrizes L e U
     L = []
@@ -98,86 +99,56 @@ def DecomposicaoLU(A, n):
 
 
 
-def definicao_matrizA():
-    resp = ' '
-    while resp not in [0, 1]:
+def definicao_matrizA_Por_Inputs():
+    
+    num = ' '
+    while type(num) != int or num <= 0:
         try: 
-            resp = int(input("Você quer definir a Matriz A por inputs ou pelo código? [0 - inputs | 1 - código]: "))
-        
-        
-            if (resp < 0 or resp > 1) and resp.type() == Integer:
-                print("Erro: Valor inválido. Digite 0 ou 1 para continuar.")
-                
-        except:
-            print("Erro: Valor inválido. Digite 0 ou 1 para continuar.")
-
-    if resp == 0:
-        num = ' '
-        while type(num) != int or num <= 0:
-            try: 
-                num = int(input("Altura e largura(As duas devem ser iguais) da matriz: "))
+            num = int(input("Altura e largura(As duas devem ser iguais) da matriz: "))
             
-                if num <= 0:
-                    print("Erro: Valor inválido. Digite um número inteiro e positivo.")
-            
-            except:
+            if num <= 0:
                 print("Erro: Valor inválido. Digite um número inteiro e positivo.")
-        A = []
-        
-        for i in range(num):
-            linhaA = []
-            for j in range(num):
-                linhaA.append('-    ')
-            A.append(linhaA)
-
-
-        for i in range(num):
-            for j in range(num):
-                valor = ' '
-                while type(valor) != float:
-                    try:
-                        valor = float(input(f"Digite o valor para a posicão {i}X{j}: "))
-                    except:
-                        print("Erro: Valor inválido. Digite um número.")
-                A[i][j] = valor
-                for k in range(num):
-                    for l in range(num):
-                        if type(A[k][l]) == str:
-                            print(f"{A[k][l]}", end='  ')
-                        else:
-                            print(f"{A[k][l]:.2f}", end='  ')
-                    print()  
-                print()
-                
-
-        
-       
-    
-    else:
-        
-
-        A = [[4, 5, 6],
-             [1, 2, 3],
-             [7, 8, 9]
-             
-            ]
             
-        num = len(A)
-    
+        except:
+            print("Erro: Valor inválido. Digite um número inteiro e positivo.")
+    A = []
         
-        
+    for i in range(num):
+        linhaA = []
+        for j in range(num):
+            linhaA.append('-    ')
+        A.append(linhaA)
 
-        
-                
-        
 
-        
-        
-    
-    return A, num
-    
-    
-    
-A, num = definicao_matrizA()    
+    for i in range(num):
+        for j in range(num):
+            valor = ' '
+            while type(valor) != float:
+                try:
+                    valor = float(input(f"Digite o valor para a posicão {i}X{j}: "))
+                except:
+                    print("Erro: Valor inválido. Digite um número.")
+            A[i][j] = valor
+            for k in range(num):
+                for l in range(num):
+                    if type(A[k][l]) == str:
+                        print(f"{A[k][l]}", end='  ')
+                    else:
+                        print(f"{A[k][l]:.2f}", end='  ')
+                print()  
+            print()
+            
 
-DecomposicaoLU(A, num)
+    return A
+    
+    
+    
+#A = definicao_matrizA_Por_Inputs()    
+
+
+A = [[1, 3, 5],
+     [2, 8, 9],
+     [4, 4, 9]
+    ]
+
+DecomposicaoLU(A)

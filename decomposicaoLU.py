@@ -180,9 +180,9 @@ def DecomposicaoLU(A):
         
     
     
-    """
-    Aqui é onde cai a exceção, quando uma exceção é levantada usando o raise
-    """
+        """
+        Aqui é onde cai a exceção, quando uma exceção é levantada usando o raise
+        """
     except MatrizSingular as erro:
         print(f'Erro: {erro}')
     except MatrizNaoQuadrada as erro:
@@ -210,10 +210,10 @@ def definicao_matrizA_Por_Inputs():
             if num <= 0:
                 print("Erro: Valor inválido. Digite um número inteiro e positivo.")
 
-        """
-        Se for digitado um valor inválido, como: string ou float, cairá nessa exceção
-        e o while coontinuará.
-        """
+            """
+            Se for digitado um valor inválido, como: string ou float, cairá nessa exceção
+            e o while coontinuará. 
+            """
         except:
             print("Erro: Valor inválido. Digite um número inteiro e positivo.")
 
@@ -231,12 +231,12 @@ def definicao_matrizA_Por_Inputs():
 
 
 
-     """
-     Trecho responsável por perguntar qual o número a ser colocado na posição, 
-     seguindo do 0x0 -> 0x1 -> 0x2 -> 1x0, e assim por diante.
-     Se for digitado um valor não numérico(que nao seja int nem float) cairá na exceção
-     e o codigo só irá avançar, quando for digitado um valor numérico.
-     """
+    """
+    Trecho responsável por perguntar qual o número a ser colocado na posição, 
+    seguindo do 0x0 -> 0x1 -> 0x2 -> 1x0, e assim por diante.
+    Se for digitado um valor não numérico(que nao seja int nem float) cairá na exceção
+    e o codigo só irá avançar, quando for digitado um valor numérico.
+    """
 
     
     for i in range(num):

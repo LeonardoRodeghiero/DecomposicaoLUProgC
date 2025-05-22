@@ -152,30 +152,27 @@ def DecomposicaoLU(A):
         Aqui são mostradas todas as matrizes (A, L e U) depois da decomposição LU
         """
           
+        
+          
+          
         print("========= RESULTADO DA DECOMPOSICAO LU =========")
         print()
         print('Matriz A: ')
-        for i in range(n):
-            for j in range(n):
-                print(f"{A[i][j]:.2f}", end='  ')
-            print()  
+        for linha in A:
+            print("      ".join(f"{num:>10.2f}" for num in linha))
           
         print()  
           
             
         print('Matriz L: ')
-        for i in range(n):
-            for j in range(n):
-                print(f"{L[i][j]:.2f}", end='  ')
-            print()
+        for linha in L:
+            print("      ".join(f"{num:>10.2f}" for num in linha))
         
         print()
         
         print('Matriz U: ')
-        for i in range(n):
-            for j in range(n):
-                print(f"{U[i][j]:.2f}", end='  ')
-            print() 
+        for linha in U:
+            print("      ".join(f"{num:>10.2f}" for num in linha))
     
         
     
@@ -212,7 +209,7 @@ def definicao_matrizA_Por_Inputs():
 
             """
             Se for digitado um valor inválido, como: string ou float, cairá nessa exceção
-            e o while coontinuará. 
+            e o while coontinuará.
             """
         except:
             print("Erro: Valor inválido. Digite um número inteiro e positivo.")
@@ -226,7 +223,7 @@ def definicao_matrizA_Por_Inputs():
     for i in range(num):
         linhaA = []
         for j in range(num):
-            linhaA.append('-    ')
+            linhaA.append("- ")
         A.append(linhaA)
 
 
@@ -248,13 +245,9 @@ def definicao_matrizA_Por_Inputs():
                 except:
                     print("Erro: Valor inválido. Digite um número.")
             A[i][j] = valor
-            for k in range(num):
-                for l in range(num):
-                    if type(A[k][l]) == str:
-                        print(f"{A[k][l]}", end='  ')
-                    else:
-                        print(f"{A[k][l]:.2f}", end='  ')
-                print()  
+            for linha in A:
+                print("      ".join(f"{num:>10}" for num in linha))
+                
             print()
             
 
@@ -269,14 +262,14 @@ chamada de uma funcao que possibilita colocar valor por valor usando inputs
 """
 Definicao de uma matriz 3x3 usando o código
 """
-A = [[2, 3, 1],
-     [4, 7, 7],
-     [-2, 4, 5]
+
+A = [[1, 2, 3],
+     [4, 5, 10],
+     [7, 8, 9]
     ]
 
 
 DecomposicaoLU(A)
-
 
 
 

@@ -10,6 +10,13 @@ class MatrizSingular(Exception):
     def __init__(self, mensagem="""Matriz Singular ou Pivô Zero!"""):
         super().__init__(mensagem)
 
+#Classe de exceção, caso tenha um elemento que nao é um numero na matriz
+class ElementoNaoNumerico(Exception):
+    def __init__(self, mensagem="""A matriz deve conter apenas números. 
+      Verifique seu código."""):
+        super().__init__(mensagem)
+
+
 def DecomposicaoLU(A):
     #A é uma matriz quadrada nxn
     #L e U serao matrizes nxn com L tendo 1 na diagonal
@@ -32,6 +39,15 @@ def DecomposicaoLU(A):
             """
             if(qtdNums != n): 
                 raise MatrizNaoQuadrada
+                
+        for linha in A:
+            for valor in linha:
+                if type(valor) != float and type(valor) != int:
+                    raise ElementoNaoNumerico
+            
+
+
+
 
 
         # Preenchendo as duas matrizes L e U com 0 em todas as casas
@@ -184,6 +200,8 @@ def DecomposicaoLU(A):
         print(f'Erro: {erro}')
     except MatrizNaoQuadrada as erro:
         print(f"Erro: {erro}")
+    except ElementoNaoNumerico as erro:
+        print(f"Erro: {erro}")
 
 
 
@@ -263,9 +281,9 @@ chamada de uma funcao que possibilita colocar valor por valor usando inputs
 Definicao de uma matriz 3x3 usando o código
 """
 
-A = [[1, 2, 3],
-     [4, 5, 10],
-     [7, 8, 9]
+A = [[1, 4, 8],
+     [4, 10, 6],
+     [7, 3, 8]
     ]
 
 
